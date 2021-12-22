@@ -49,3 +49,7 @@ class Snake:
     
     def grow(self):                             # A new turtle object is appended to the list and is placed at the position of the last
         self.add_part(self.body[-1].position())  # object to simulate a growing snake
+    
+    def kill(self):
+        for i in self.body:
+            i.hideturtle()

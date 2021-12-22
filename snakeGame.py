@@ -18,11 +18,10 @@ scr.tracer(0)   #Tracer off, need to manually update the screen. No animation un
 # tim.resizemode(rmode="user") 
 # tim.shapesize(stretch_len=3) #Can't show flexible movements with this
 
-snake = Snake()
 food = Food()
 score = Score()
+snake = Snake()
 game_on = True
-
 scr.listen()
 while game_on:
     scr.update()    # Animate the screen, update the changes like the snake movement
@@ -32,13 +31,12 @@ while game_on:
     scr.onkey(key="Left", fun=snake.lefts)
     scr.onkey(key="Right", fun=snake.rights)
     scr.onkey(key="Down", fun=snake.downs)
-
     # Food Detection
     if  snake.head.distance(food) < 13:
         food.place_food()
         snake.grow()
         score.scored()
-    
+        
     # Wall Collision Detection
     if snake.head.xcor() >= 270 or snake.head.xcor() <= -270 or snake.head.ycor() >= 270 or snake.head.ycor() <= -270:
         score.gameover()
